@@ -1,6 +1,51 @@
 # indysim
-Monte Carlo simulation of the performance of a melody with flexible rhythm. Specifically, it is designed for computational analysis of indeterminate or improvised music where the duration of notes in a fixed sequence is free. In simulated performance, all notes are played in sequence, but with random duration.
+A collection of functions for simulating performances of indeterminate music for analysis.
 
-Simply specify a melody (as a list of MIDI note numbers), the performance duration (as a number of discrete time units), and the number of performnaces to simulate. The performance will begin and end with silence of random duration.
+Computational methods can be used to analyze indeterminate music by generating virtual performances. These methods are especially well suited to music that is indeterminate with respect to duration, or which has flexible synchronization between parts, including works by Earle Brown using proportional notation and works by Morton Feldman such as his "Durations" series. In other words, works comprising a fixed sequence of notes, each of which has indeterminate duration.
 
-Output is a matrix (list of lists) where columns = time, rows = individual performances.
+This collection of functions can be used to generate a Monte Carlo simulation of such music, and to compare the results of multiple simulations of the same part (melody), or multiple simulations of multiple parts. All melodies are treated as lists of MIDI note numbers (no rhythmic information). Users can specify performance duration, and random durations are scaled accordingly.
+
+Combine with music21 for more advanced pitch analysis. See examples.py for typical usage.
+
+# Functions
+
+```bash
+import_score(file_name, part=0)
+```
+Import and format MusicXML file for input (returns list of MIDI nn)
++ file_name - Name and path of MusicXML file enclosed in ''
++ part - specify part in score (for more see [music21 documentation](http://web.mit.edu/music21/doc/moduleReference/moduleStream.html#music21.stream.Score.parts))
+
+```bash
+one_perf(note_list_, perf_length, leading=True, trailing=True, between=False)
+```
+Generate a single virtual performance of a melody
++ note_list_ - melody to be performed (list of MIDI nn)
++ perf_length - Length of performance (number of time units)
++ leading - If true, begin performance with random duration of silence
++ trailing - If true, end perform with random duration of silence
++ between - If true, intersperse each note with random duration of silence
+
+```bash
+build_sim(melody_, perf_length, num_perfs, leading=True, trailing=True, between=False)
+```
+Generate multiple virtual performances of a melody
++ melody_ - melody to be performed (list of MIDI nn)
++ perf_length - Length of performance (number of time units)
++ num_perfs - Number of performances to simulate
++ leading - If true, begin performance with random duration of silence
++ trailing - If true, end perform with random duration of silence
++ between - If true, intersperse each note with random duration of silence
+
+```bash
+sim_time(sim_in)
+```
+Organize results of a single simulation by unit time
++ sim_in - simulation
+
+
+```bash
+combine_sims(sims)
+```
+Combine multiple simulations (multiple melodies) into a single list of lists, organized by unit time
++ sims - list of simulations (of identical size and length)
