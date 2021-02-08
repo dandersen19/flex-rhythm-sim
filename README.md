@@ -10,17 +10,20 @@ Combine with music21 for more advanced pitch analysis. See examples.py for typic
 # Functions
 ## import_score
 ```bash
-import_score(file_name, part=0)
+import_score(file_name, part=0, excerpt=False, first_bar=0, last_bar=1)
 ```
 Import and format MusicXML file for input (returns list of MIDI nn)
 + file_name - Name and path of MusicXML file enclosed in ''
-+ part - specify part in score (for more see [music21 documentation](http://web.mit.edu/music21/doc/moduleReference/moduleStream.html#music21.stream.Score.parts))
++ part - Specify part in score (for more see [music21 documentation](http://web.mit.edu/music21/doc/moduleReference/moduleStream.html#music21.stream.Score.parts))
++ excerpt - If true, melody imported for measure range specified by first_bar, last_bar
++ first_bar - If excerpt=True, first measure in range (pickup bar=0)
++ last_bar - If excerpt=True, last measure in range (inclusive)
 ## one_perf
 ```bash
 one_perf(note_list_, perf_length, leading=True, trailing=True, between=False)
 ```
 Generate a single virtual performance of a melody
-+ note_list_ - melody to be performed (list of MIDI nn)
++ note_list_ - Melody to be performed (list of MIDI nn)
 + perf_length - Length of performance (number of time units)
 + leading - If true, begin performance with random duration of silence
 + trailing - If true, end perform with random duration of silence
@@ -30,7 +33,7 @@ Generate a single virtual performance of a melody
 build_sim(note_list_, perf_length, num_perfs, leading=True, trailing=True, between=False)
 ```
 Generate multiple virtual performances of a melody
-+ note_list_ - melody to be performed (list of MIDI nn)
++ note_list_ - Melody to be performed (list of MIDI nn)
 + perf_length - Length of performance (number of time units)
 + num_perfs - Number of performances to simulate
 + leading - If true, begin performance with random duration of silence
@@ -41,10 +44,10 @@ Generate multiple virtual performances of a melody
 sim_time(sim_in)
 ```
 Organize results of a single simulation by unit time
-+ sim_in - simulation
++ sim_in - Simulation
 ## combine_sims
 ```bash
 combine_sims(sims)
 ```
 Combine multiple simulations (multiple melodies) into a single list of lists, organized by unit time
-+ sims - list of simulations (of identical size and length)
++ sims - List of simulations (of identical size and length)
