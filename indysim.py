@@ -25,8 +25,11 @@ import random
 
 # IMPORT_SCORE
 # import one part from XML score file into list of midi notes
-def import_score(file_name, part=0):
-    return [p.midi for p in m21.converter.parse(file_name).parts[part].pitches]
+def import_score(file_name, part=0, excerpt=False, first_bar=0, last_bar=1):
+    if excerpt == True:
+        return [p.midi for p in m21.converter.parse(file_name).measures(first_bar, last_bar).parts[part].pitches]
+    else:
+        return [p.midi for p in m21.converter.parse(file_name).parts[part].pitches]
 
 # ONE_PERF
 # function to generate an individual performance
