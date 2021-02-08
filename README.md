@@ -3,7 +3,7 @@ A collection of functions for simulating performances of indeterminate music for
 
 Computational methods can be used to analyze indeterminate music by generating virtual performances. These methods are especially well suited to music that is indeterminate with respect to duration, or which has flexible synchronization between parts, including works by Earle Brown using proportional notation and works by Morton Feldman such as his "Durations" series. In other words, works comprising a fixed sequence of notes, each of which has flexible duration.
 
-This collection of functions can be used to generate a Monte Carlo simulation of such music, and to compare the results of multiple simulations of the same part (melody), or multiple simulations of multiple parts. All melodies are treated as lists of MIDI note numbers (no rhythmic information). Users can specify performance duration, and random durations are scaled accordingly.
+This collection of functions can be used to generate a Monte Carlo simulation of indetermiante music, and to compare the results of multiple simulations of the same part (melody), or multiple simulations of multiple parts. All melodies are treated as lists of MIDI note numbers (no rhythmic information). Users can specify performance duration, and random durations are scaled accordingly.
 
 Combine with music21 for more advanced pitch analysis. See examples.py for typical usage.
 
