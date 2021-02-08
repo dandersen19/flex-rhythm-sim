@@ -78,14 +78,14 @@ def one_perf(note_list_, perf_length, leading=True, trailing=True, between=False
 
 # BUILD_SIM
 # build matrix of performances of single melody where each row is random performance
-def build_sim(melody_, perf_length, num_perfs, leading=True, trailing=True, between=False):    
+def build_sim(note_list_, perf_length, num_perfs, leading=True, trailing=True, between=False):    
     
-    melody = melody_[:] # copy of melody
+    note_list = note_list_[:] # copy of note_list
     l = [] # list of lists (output matrix)
     
     for i in range(num_perfs):
         # call nested function to generate random performance and append to list
-        l.append(one_perf(melody, perf_length, leading, trailing, between))
+        l.append(one_perf(note_list, perf_length, leading, trailing, between))
     
     return l # return list of lists
 
