@@ -27,10 +27,10 @@ Generate a single virtual performance of a melody
 + between - If true, intersperse each note with random duration of silence
 ## build_sim
 ```bash
-build_sim(melody_, perf_length, num_perfs, leading=True, trailing=True, between=False)
+build_sim(note_list_, perf_length, num_perfs, leading=True, trailing=True, between=False)
 ```
 Generate multiple virtual performances of a melody
-+ melody_ - melody to be performed (list of MIDI nn)
++ note_list_ - melody to be performed (list of MIDI nn)
 + perf_length - Length of performance (number of time units)
 + num_perfs - Number of performances to simulate
 + leading - If true, begin performance with random duration of silence
