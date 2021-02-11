@@ -138,5 +138,5 @@ def combine_sims(sims):
         print("Length of performances do not match.")
         return
 
-    # join multiple sims (with multiple perfs) into a single list of list (of lists...) 
+    # join multiple sims (with multiple perfs) into a single list of lists (of lists...) 
     return [[[sims[i][j][k] for i in range(len(sims))] for j in range(sim_length_list[0])] for k in range(perf_length_list[0])]
