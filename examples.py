@@ -21,9 +21,10 @@ my_melody3 = [72, 71, 69, 67, 65, 62]
 # one virtual performance, length = 50, no leading silence
 perf1 = one_perf(my_melody, 100, leading=False)
 
-# simulate ten performances of melody, length = 100, with silences interspersed
+# simulate ten performances of melody, length = 100, with silences interspersed...
 sim1 = build_sim(my_melody, 100, 10, between=True)
 
+# ...and ten performances of another melody without interspersed silences
 sim2 = build_sim(my_melody2, 100, 10, between=False)
 
 # organize simulation results by unit time...
