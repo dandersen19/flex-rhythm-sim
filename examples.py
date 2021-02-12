@@ -18,7 +18,7 @@ my_melody2 = import_score('/Users/User/sample_score.xml', part=1, excerpt=True, 
 # you can also enter a melody as a list of MIDI note numbers
 my_melody3 = [72, 71, 69, 67, 65, 62]
 
-# one virtual performance, length = 50, no leading silence
+# one virtual performance, length = 100, no leading silence
 perf1 = one_perf(my_melody, 100, leading=False)
 
 # simulate ten performances of melody, length = 100, with silences interspersed...
