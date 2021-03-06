@@ -18,6 +18,16 @@ Import and format MusicXML file for input (returns list of MIDI nn)
 + excerpt - If true, melody imported for measure range specified by first_bar, last_bar
 + first_bar - If excerpt=True, first measure in range (pickup bar=0)
 + last_bar - If excerpt=True, last measure in range (inclusive)
+## import_multistaff
+```bash
+import_multistaff(file_name, part_nums=[0,1], excerpt=False, first_bar=0, last_bar=1)
+```
+Import and format multiple staves from MusicXML file as a single part
++ file_name - Name and path of MusicXML file enclosed in ''
++ part_nums - Specify parts in score as list (for more see [music21 documentation](http://web.mit.edu/music21/doc/moduleReference/moduleStream.html#music21.stream.Score.parts))
++ excerpt - If true, melody imported for measure range specified by first_bar, last_bar
++ first_bar - If excerpt=True, first measure in range (pickup bar=0)
++ last_bar - If excerpt=True, last measure in range (inclusive)
 ## one_perf
 ```bash
 one_perf(note_list_, perf_length, leading=True, trailing=True, between=False)
@@ -51,3 +61,9 @@ combine_sims(sims)
 ```
 Combine multiple simulations (multiple melodies) into a single list of lists, organized by unit time
 + sims - List of simulations (of identical size and length)
+## set_freq
+```bash
+set_freq(set_list)
+```
+Generates a dictionary with prevalence of all set classes in a given list of pitch (or pc) sets
++ set_list - List of pitch sets (list of lists)

@@ -40,7 +40,7 @@ def import_part(file_name, part=0, excerpt=False, first_bar=0, last_bar=1):
 
 # IMPORT_MULTISTAFF
 # import multiple staves from XML score as a single part
-def import_multistaff(file_name, part_nums, excerpt=False, first_bar=0, last_bar=1):
+def import_multistaff(file_name, part_nums=[0,1], excerpt=False, first_bar=0, last_bar=1):
     
     if excerpt == True:
         score_in = m21.converter.parse(file_name).measures(first_bar, last_bar)
