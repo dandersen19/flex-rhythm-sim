@@ -36,7 +36,27 @@ def import_part(file_name, part=0, excerpt=False, first_bar=0, last_bar=1):
         part_in = m21.converter.parse(file_name).parts[part]
     
     # iterates over arbitrarily polyphonic melody (i.e. if it contains single notes and/or chords)
-    return [[j.pitch.midi for j in i] if hasattr(i, '__iter__') else i.pitch.midi for i in part_in.recurse().notes]
+    return [[j.pitch.midi for j in i] if len(i.pitches) > 1 else i.pitches[0].midi for i in singlestaff.recurse().notes]
+
+# IMPORT_MULTISTAFF
+# import multiple staves from XML score as a single part
+def import_multistaff(file_name, part_nums, excerpt=False, first_bar=0, last_bar=1):
+    
+    if excerpt == True:
+        score_in = m21.converter.parse(file_name).measures(first_bar, last_bar)
+    else:
+        score_in = m21.converter.parse(file_name)
+    
+    multistaff = m21.stream.Score()
+    singlestaff = m21.stream.Score()
+
+    for part in part_nums:
+	    multistaff.append(score_in.parts[part])
+
+    singlestaff = multistaff.chordify()
+
+    # iterates over arbitrarily polyphonic melody (i.e. if it contains single notes and/or chords)
+    return [[j.pitch.midi for j in i] if len(i.pitches) > 1 else i.pitches[0].midi for i in singlestaff.recurse().notes]
 
 # ONE_PERF
 # function to generate an individual performance
@@ -149,7 +169,7 @@ def combine_sims(sims):
     return [[[sims[i][j][k] for i in range(len(sims))] for j in range(sim_length_list[0])] for k in range(perf_length_list[0])]
 
 # SET_FREQ
-# create a dictionary with set class prevalence per unit time
+# create a dictionary with set class prevalence given a list of pitch sets (list of lists)
 def set_freq(set_list):
 	freq_dict = {}
 	
