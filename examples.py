@@ -43,6 +43,8 @@ combine_sims([sim1, sim2])
 #####   NOTES   #####
 #####################
 
-# performance length should generally be at least one order of magnitude greater than sequence length
-# (sequence length = melody length plus any leading, trailing, or interspersed zeroes)
-# if the two values are too close it will take too long to get random values that don't duplicate
+'''
+performance length should generally be at least one order of magnitude greater than sequence length
+(sequence length = melody length plus any leading, trailing, or interspersed zeroes)
+if the two values are too close it will take too long to get random values that don't duplicate
+'''
