@@ -6,14 +6,16 @@
 ####  EXAMPLES  ####
 ####################
 
+# update examples (and sample score file) to show how polyphony, multi-staff parts work
+
 # import file (imports random and music21 as m21)
 exec(open('/Users/User/indysim.py').read())
 
 # import a melody from an XML file
-my_melody = import_score('/Users/User/sample_score.xml')
+my_melody = import_part('/Users/User/sample_score.xml')
 
 # import a second melody using optional args to specify part (1) and measure range (1-3)
-my_melody2 = import_score('/Users/User/sample_score.xml', part=1, excerpt=True, first_bar=1, last_bar=3)
+my_melody2 = import_part('/Users/User/sample_score.xml', part=1, excerpt=True, first_bar=1, last_bar=3)
 
 # you can also enter a melody as a list of MIDI note numbers
 my_melody3 = [72, 71, 69, 67, 65, 62]
