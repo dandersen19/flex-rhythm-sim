@@ -20,7 +20,7 @@ my_melody2 = import_part('/Users/User/sample_score.xml', part=1, excerpt=True, f
 # you can also enter a melody as a list of MIDI note numbers
 my_melody3 = [72, 71, 69, 67, 65, 62]
 
-# melodies can contain single notes, chords, or both (chords are imported as sub-lists))
+# melodies can contain single notes, chords, or both (chords are imported as sub-lists)
 my_melody4 = [73, 71, 69, [52, 56, 59, 68], 76, [49, 52, 55, 58], 67]
 
 # one virtual performance, length = 100, no leading silence
