@@ -48,7 +48,27 @@ for i in range(100):
    print("Time Unit:",i)
    max(analysis.set_freq(combined[i]).items(), key=operator.itemgetter(1))[0]
 
-# add example with get_lewins function
+# get Lewins for a given pitch set (pitches or pc, in MIDI note numbers)
+analysis.get_lewins([60, 62, 64])
+
+# get Lewins of most prevalent set class per unit time (over the first 100 time units)
+for i in range(100):
+   print("Time Unit:",i)
+   set_out = (str_to_list(max(analysis.set_freq(combined[i]).items(), key=operator.itemgetter(1))[0]))
+   if set_out != None:
+      analysis.get_lewins(set_out)
+
+# N.B. above requires this function to convert string-based m21 labels to lists for get_lewins()
+def str_to_list(set_in):
+   if set_in == '<Silence>':
+      return
+   else:
+      set_in = [pc for pc in set_in[1:-1]] # make into a list and trim '<' and '>'
+      if 'A' in set_in:
+         set_in[set_in.index('A')] = '10' # in case set class contains 10 (represented in m21 as "A")
+      if 'B' in set_in:
+         set_in[set_in.index('B')] = '11' # in case set class contains 11 (represented in m21 as "B")
+      return [int(pc) for pc in set_in]
 
 #####################
 #####   NOTES   #####
