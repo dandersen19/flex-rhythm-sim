@@ -69,7 +69,7 @@ Generates a dictionary with prevalence of all set classes in a given list of pit
 + set_list - List of pitch sets (list of lists)
 ## get_lewins
 ```bash
-get_lewins([pitch_set])
+get_lewins(pcset)
 ```
 Calculates Lewins on Fourier balances 1-6 for any pitch set (per Ian Quinn 2006/2007)
-+ set_list - List of pitch classes (or pitches)
++ pitch_set - List of pitch classes (or pitches)

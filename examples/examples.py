@@ -6,11 +6,6 @@
 ####  EXAMPLES  ####
 ####################
 
-# update examples (and sample score file) to show how polyphony, multi-staff parts work
-
-# import file (imports random and music21 as m21)
-exec(open('/Users/User/indysim.py').read())
-
 # import a melody from an XML file
 my_melody = import_part('/Users/User/sample_score.xml')
 
@@ -47,6 +42,8 @@ combine_sims([sim1, sim2])
 for i in range(100):
    print("Time Unit:",i)
    max(set_frequency(event11[i]).items(), key=operator.itemgetter(1))[0]
+
+# add example with get_lewins function
 
 #####################
 #####   NOTES   #####
