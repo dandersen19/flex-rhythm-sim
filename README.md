@@ -1,5 +1,5 @@
 # indysim
-A collection of functions for simulating performances of indeterminate music for analysis.
+A package for simulating performances of indeterminate music for analysis.
 
 Computational methods can be used to analyze indeterminate music by generating virtual performances. These methods are especially well suited to music that is indeterminate with respect to duration, or which has flexible synchronization between parts, including works by Earle Brown using proportional notation and works by Morton Feldman such as his "Durations" series. In other words, works comprising a fixed sequence of notes, each of which has flexible duration.
 
