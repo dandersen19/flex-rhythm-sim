@@ -1,6 +1,10 @@
 # IndySim Project
 # Copyright (C) 2021 Drake Andersen
-# Functions for simulating performances of indeterminate music for analysis
+# Package for simulating and analyzing experimental music
+
+#####################
+## SIMULATION TOOLS #
+#####################
 
 #####################
 ######  SETUP  ######
@@ -167,36 +171,3 @@ def combine_sims(sims):
 
     # join multiple sims (with multiple perfs) into a single list of lists (of lists...) 
     return [[[sims[i][j][k] for i in range(len(sims))] for j in range(sim_length_list[0])] for k in range(perf_length_list[0])]
-
-# SET_FREQ
-# create a dictionary with set class prevalence given a list of pitch sets (list of lists)
-def set_freq(set_list):
-	freq_dict = {}
-	
-	# going directly from MIDI notes to m21 chords is very slow
-	# much faster to recreate table of integers as list of list of m21 pitches
-	# then convert list of pitches to chords (thanks @jacobtylerwalls)
-    
-	time_list = []
-	for chord in set_list:
-		chord_list = []
-		for note in chord:
-			if hasattr(note, '__iter__'): # if "note" is actually a chord
-				for subnote in note:
-					chord_list.append(m21.pitch.Pitch(subnote))
-			if note != 0 and hasattr(note, '__iter__') == False:
-				chord_list.append(m21.pitch.Pitch(note))
-		time_list.append(chord_list)
-    
-	# pitches to chords to prime form string
-	final_list = [m21.chord.Chord(elem).primeFormString for elem in time_list if elem]
-	
-	# count using dictionary
-	for item in final_list:
-		if (item in freq_dict):
-			freq_dict[item] += 1
-		else:
-			freq_dict[item] = 1
-	# empty sets counted as silence
-	freq_dict['<Silence>'] = len(set_list) - sum(freq_dict.values())
-	return freq_dict # return dictionary

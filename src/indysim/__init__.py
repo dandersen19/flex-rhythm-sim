@@ -1,1 +1,1 @@
-__all__ = ['indysim', 'lewins']
+__all__ = ['simulation', 'analysis']

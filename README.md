@@ -1,7 +1,7 @@
 # indysim
-A package for simulating performances of indeterminate music for analysis.
+Package for simulating and analyzing experimental music.
 
-Computational methods can be used to analyze indeterminate music by generating virtual performances. These methods are especially well suited to music that is indeterminate with respect to duration, or which has flexible synchronization between parts, including works by Earle Brown using proportional notation and works by Morton Feldman such as his "Durations" series. In other words, works comprising a fixed sequence of notes, each of which has flexible duration.
+Computational methods can be used to analyze experimental music by generating virtual performances. These methods are especially well suited to music that is indeterminate with respect to duration, or which has flexible synchronization between parts, including works by Earle Brown using proportional notation and works by Morton Feldman such as his "Durations" series. In other words, works comprising a fixed sequence of notes, each of which has flexible duration.
 
 This collection of functions can be used to generate a Monte Carlo simulation of indeterminate music, and to compare the results of multiple simulations of the same part (melody), or multiple simulations of multiple parts. All melodies are treated as lists of MIDI note numbers (no rhythmic information; chords are represented as sub-lists). Users can specify performance duration, and random durations are scaled accordingly.
 
